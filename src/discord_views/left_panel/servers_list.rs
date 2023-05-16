@@ -1,7 +1,6 @@
-use crate::server_icon;
 use floem::{style::Style, view::View, views::*};
 
-use crate::ColorPalette;
+use crate::{server_icon, ColorPalette};
 
 pub fn servers_list() -> impl View {
     scroll(|| {

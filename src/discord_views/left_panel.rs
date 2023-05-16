@@ -1,5 +1,6 @@
-use crate::ColorPalette::*;
 use floem::{style::Style, view::View, views::*};
+
+use crate::ColorPalette::*;
 
 mod servers_list;
 
@@ -19,10 +20,16 @@ pub fn left_panel() -> impl View {
                     .border(1.0)
                     .border_radius(3.0)
             }),
-            servers_list::servers_list(),
+            // servers_list::servers_list(),
             crate::server_icon(super::icons::PLUS.to_string(), Green.color()),
             crate::server_icon(super::icons::COMPASS.to_string(), Green.color()),
         )
     })
-    .style(|| Style::BASE.flex_col().padding_px(15.0).items_center())
+    .style(|| {
+        Style::BASE
+            .flex_col()
+            .padding_px(15.0)
+            .items_center()
+            .background(Dark1.color())
+    })
 }

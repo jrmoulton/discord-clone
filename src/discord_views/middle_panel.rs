@@ -1,5 +1,5 @@
-use super::{icons::*, ColorPalette};
 use floem::{
+    cosmic_text::Weight,
     reactive::use_context,
     style::{JustifyContent, Style},
     view::View,
@@ -8,14 +8,20 @@ use floem::{
 };
 use ColorPalette::*;
 
+use super::{icons::*, ColorPalette};
+
 pub fn middle_panel() -> impl View {
     stack(|| {
         (
             // Server title and drop_down
             stack(|| {
                 (
-                    label(|| "Lapce".to_string())
-                        .style(|| Style::BASE.color(ColorPalette::Light1.color())),
+                    label(|| "Lapce".to_string()).style(|| {
+                        Style::BASE
+                            .color(ColorPalette::Light1.color())
+                            .font_size(17.0)
+                            .font_weight(Weight(500))
+                    }),
                     icon_chevron_down()
                         .style(|| Style::BASE.color(Light1.color()).size_px(15.0, 15.0)),
                 )
@@ -25,6 +31,7 @@ pub fn middle_panel() -> impl View {
                     .unwrap_or(crate::TopBarWidth(30.0));
                 Style::BASE
                     .justify_content(Some(JustifyContent::SpaceBetween))
+                    .items_center()
                     .height_px(width.0)
                     .padding_px(5.0)
             }),
