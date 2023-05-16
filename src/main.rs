@@ -50,8 +50,8 @@ fn main() {
             |_cx| app_logic(),
             Some(
                 WindowConfig::default()
-                    .show_titlebar(true)
-                    .size(Size::new(100.0, 100.0)),
+                    .show_titlebar(false)
+                    .size(Size::new(800.0, 600.0)),
             ),
         )
         .run();
